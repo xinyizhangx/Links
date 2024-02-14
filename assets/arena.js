@@ -55,7 +55,6 @@ let renderBlock = (block) => {
 			<li class="block block--image">
 				<figure>
 					<img src="${block.image.original.url}" alt="${block.title}">
-					<figcaption>${block.title}</figcaption>
 				</figure>
 			</li>
 			`;
@@ -89,6 +88,14 @@ let renderBlock = (block) => {
 
 		// Uploaded PDFs!
 		else if (attachment.includes('pdf')) {
+			let pdfItem = `
+				<li class=“block block--pdf”>
+					<a href="${block.attachment.url}"target="_blank rel="noopener noreferrer">
+						${block.title || 'View PDF'}
+					</a>
+				</li>
+				`;
+            channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
 			// …up to you!
 		}
 
