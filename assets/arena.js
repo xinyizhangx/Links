@@ -10,18 +10,17 @@ document.head.appendChild(markdownIt)
 let channelSlug = 'white-noise-bbjepzswpzu' // The “slug” is just the end of the URL
 
 
-
 // First, let’s lay out some *functions*, starting with our basic metadata:
 let placeChannelInfo = (data) => {
 	// Target some elements in your HTML:
 	let channelTitle = document.getElementById('channel-title')
-	let channelDescription = document.getElementById('channel-description')
+	// let channelDescription = document.getElementById('channel-description')
 	let channelCount = document.getElementById('channel-count')
 	let channelLink = document.getElementById('channel-link')
 
 	// Then set their content/attributes to our data:
 	channelTitle.innerHTML = data.title
-	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
+	// channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
 	channelCount.innerHTML = data.length
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
