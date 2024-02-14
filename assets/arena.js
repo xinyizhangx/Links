@@ -25,8 +25,6 @@ let placeChannelInfo = (data) => {
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
 
-
-
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
 	// To start, a shared `ul` where we’ll insert all our blocks
@@ -52,7 +50,16 @@ let renderBlock = (block) => {
 	}
 
 	// Images!
-	else if (block.class == 'Image') {
+	if (block.class == 'Image') {
+		let imageItem = `
+			<li class="block block--image">
+				<figure>
+					<img src="${block.image.original.url}" alt="${block.title}">
+					<figcaption>${block.title}</figcaption>
+				</figure>
+			</li>
+			`;
+		channelBlocks.insertAdjacentHTML("beforeend", imageItem);
 		// …up to you!
 	}
 
