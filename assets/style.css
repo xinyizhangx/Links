@@ -1,22 +1,45 @@
 /* These styles are just to make it easier to see the blocks, initially. */
 
+:root {
+  --spacing: 2em;
+  --font-size: 12px;
+  --color: darkgrey;
+  --gutter: calc(var(--font-size) * 1.618);
+}
+
 body {
-	--spacing: 2em;
-	font-family: monospace;
-	padding: var(--spacing);
+  --spacing: 2em;
+  font-family: monospace;
+  padding: var(--spacing);
 }
 
-body, header, section, ul, li, footer, address {
-	display: grid;
-	gap: var(--spacing);
+body,
+header,
+section,
+ul,
+li,
+footer,
+address {
+  display: grid;
+  gap: var(--spacing);
 }
 
-main { max-width: 600px }
+main {
+  max-width: 600px;
+}
 
-a { color: blue; }
-em { font-style: italic; }
-strong { font-weight: bold; }
-p { max-width: 50ch; }
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: bold;
+}
+p {
+  max-width: 50ch;
+}
+a {
+  color: blue;
+}
 
 * {
   margin: 0;
@@ -24,12 +47,6 @@ p { max-width: 50ch; }
   hyphens: none;
   box-sizing: border-box;
   text-decoration: none;
-}
-
-:root {
-  --font-size: 12px;
-  --color: darkgrey;
-  --gutter: calc(var(--font-size) * 1.618);
 }
 
 @media (min-width: 1400px) {
@@ -60,11 +77,11 @@ p.intro {
   display: block;
   color: black;
   font-size: calc(var(--font-size) * 4);
-  text-align: center;
+  text-align: left;
   padding: var(--font-size);
   text-decoration: none;
-  margin-left: calc(var(--spacing) * 2);
-  margin-top: calc(var(--spacing) * 2);
+  margin-left: var(--spacing);
+  margin-top: var(--spacing);
 }
 
 nav {
