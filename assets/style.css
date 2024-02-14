@@ -92,7 +92,7 @@ nav {
   background-color: transparent;
   color: var(--color);
   padding: calc(var(--spacing) / 4);
-  margin-left: calc(var(--spacing) * 32);
+  margin-left: calc(var(--spacing) * 28);
   margin-top: calc(var(--spacing) * 1.2);
 }
 
