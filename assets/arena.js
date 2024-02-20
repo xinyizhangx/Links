@@ -27,22 +27,32 @@ let placeChannelInfo = (data) => {
 let renderBlock = (block) => {
   // To start, a shared `ul` where we’ll insert all our blocks
   let channelBlocks = document.getElementById("channel-blocks");
-
+  // let channelVideos = document.getElementById('channel-videos')
   // Links!
   if (block.class == "Link") {
-    let linkItem = `
-			<li>
-				<p><em>Link</em></p>
-				<picture>
-					<source media="(max-width: 428px)" srcset="${block.image.thumb.url}">
-					<source media="(max-width: 640px)" srcset="${block.image.large.url}">
+    // let linkItem =
+    // `
+    // <li class="block block--link">
+    // 	<p><em>Link</em></p>
+    // 	<picture>
+    // 		<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+    // 		<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+    // 		<img src="${ block.image.original.url }">
+    // 	</picture>
+    // 	<h3>${ block.title }</h3>
+    // 	${ block.description_html }
+    // 	<p><a href="${ block.source.url }">See the original ↗</a></p>
+    // 	<button id="imageButton">🖱️</button>
+    // </li>
+    // `
+    let linkItem = `		
+			<li class="block block--link">
+				<figure>
 					<img src="${block.image.original.url}">
-				</picture>
-				<h3>${block.title}</h3>
-				${block.description_html}
-				<p><a href="${block.source.url}">See the original ↗</a></p>
+				</figure>
+				<button id="imageButton">🔗</button>
 			</li>
-			`;
+		`;
     channelBlocks.insertAdjacentHTML("beforeend", linkItem);
   }
 
@@ -53,6 +63,10 @@ let renderBlock = (block) => {
 				<figure>
 					<img src="${block.image.original.url}" alt="${block.title}">
 				</figure>
+				<div class="block--image__description">
+					${block.description_html}
+				</div>
+				<button id="imageButton" onclick="${onClick()}">🖱️</button>
 			</li>
 			`;
     channelBlocks.insertAdjacentHTML("beforeend", imageItem);
@@ -76,6 +90,8 @@ let renderBlock = (block) => {
         `
 				<li class="block block--video">
 					<video controls src="${block.attachment.url}"></video>
+					<button id="imageButton">🖱️</button>
+
 				</li>
 				`;
       channelBlocks.insertAdjacentHTML("beforeend", videoItem);
@@ -85,11 +101,18 @@ let renderBlock = (block) => {
 
     // Uploaded PDFs!
     else if (attachment.includes("pdf")) {
+      // ${block.title || 'View PDF'}
+      // <a href="${block.attachment.url}"
+      // 				target="_blank
+      // 				rel="noopener noreferrer">
+      // 			</a>
       let pdfItem = `
-				<li class=“block block--pdf”>
-					<a href="${block.attachment.url}"target="_blank rel="noopener noreferrer">
-						${block.title || "View PDF"}
-					</a>
+				<li class="block block--pdf">
+					<figure>
+						<img src="${block.image.original.url}" alt="${block.title}">
+					</figure>
+					<button id="imageButton">🔗</button>
+
 				</li>
 				`;
       channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
@@ -113,17 +136,20 @@ let renderBlock = (block) => {
   // Linked media…
   else if (block.class == "Media") {
     let embed = block.embed.type;
-
     // Linked video!
+    // ${ block.embed.html }
     if (embed.includes("video")) {
       // …still up to you, but here’s an example `iframe` element:
       let linkedVideoItem = `
-				<li>
-					<p><em>Linked Video</em></p>
-					${block.embed.html}
+				<li class="block block--media">
+				<figure>	
+					<img src="${block.image.original.url}" alt="${block.title}">
+				</figure>
+				<button id="imageButton">🔗</button>
 				</li>
 				`;
       channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
+      // channelVideos.insertAdjacentHTML('beforeend', linkedVideoItem)
       // More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
     }
 
@@ -156,7 +182,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, {
     // Do stuff with the data
     console.log(data); // Always good to check your response!
     placeChannelInfo(data); // Pass the data to the first function
-
     // Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
     data.contents.reverse().forEach((block) => {
       // console.log(block) // The data for a single block
@@ -170,3 +195,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, {
     );
     renderUser(data.user, channelUsers);
   });
+
+let onClick = () => {
+  console.log(1);
+};

@@ -22,34 +22,34 @@ address {
   display: grid;
   gap: var(--spacing);
 }
-
 ul {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
 }
 
-ul li {
-  width: 200px;
-  height: 200px;
+#channel-blocks li {
+  width: 80px;
+  height: 100px;
+  margin-bottom: 25px;
   border-radius: 100px;
-  overflow: hidden;
+  box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.2);
   border: 2px solid #ccc;
   transition: all 0.5s linear;
 }
-
-ul li:hover {
+#channel-blocks li:hover {
   transform: scale(1.1);
 }
-
 ul li figure {
   height: 100%;
+  border-radius: 100px;
 }
-
 ul li figure img,
 video {
   width: 100%;
   height: 100%;
+  border-radius: 100px;
+  overflow: hidden;
 }
 
 main {
@@ -90,13 +90,11 @@ a {
   display: flex;
   flex-direction: column;
 }
-
 .container header .header-icon {
   width: 70%;
   height: 300px;
   background: url(./aw.gif) center no-repeat;
 }
-
 article {
   margin-left: calc(var(--spacing) * 25);
 }
@@ -120,9 +118,14 @@ p.intro {
 nav {
   position: fixed;
   top: 0;
-  width: 100%;
+  right: 3%;
   z-index: 1000;
+  /* width: 90%; */
+  /* background-color: #7f7f7f; */
+
+  /* color: var(--color); */
   padding: calc(var(--spacing) / 4);
+  /* margin-left: calc(var(--spacing) * 28); */
   margin-top: calc(var(--spacing) * 1.2);
 }
 
@@ -137,7 +140,8 @@ nav a {
   color: #ccc;
   text-decoration: none;
   font-size: calc(var(--font-size / 1.5));
-  margin-left: calc(var(--spacing) * 43);
+  margin-left: var(--spacing);
+  /* background-color: #ccc; */
 }
 
 nav a:hover {
@@ -212,13 +216,34 @@ html {
   bottom: 0;
   width: 100%;
   border-top: 1px solid black;
-  padding-right: 50px;
 }
 
 .name,
 .description,
 .pj {
   display: inline-block;
-  margin: 0 16px;
-  text-align: right;
+  margin: 0 20px;
+}
+
+#imageButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin: 10px 30%;
+  color: #fff;
+  text-align: center;
+}
+#imageButton:hover {
+  cursor: pointer;
+}
+
+.block--image__description {
+  display: none;
+  position: fixed;
+  color: white;
+  padding: 1em;
+  top: 0;
+  background-color: rgba(0, 0, 255, 0.75);
+  backdrop-filter: blur;
+  inset: 0em;
 }
