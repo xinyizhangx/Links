@@ -29,10 +29,10 @@ ul {
 }
 
 #channel-blocks li {
-  width: 80px;
-  height: 100px;
+  width: 180px;
+  height: 180px;
   margin-bottom: 25px;
-  border-radius: 100px;
+  border-radius: 180px;
   box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.2);
   border: 2px solid #ccc;
   transition: all 0.5s linear;
@@ -212,6 +212,7 @@ html {
   color: black;
   text-align: right;
   padding: calc(var(--font-size) / 2.5);
+  padding-right: var(--spacing);
   position: fixed;
   bottom: 0;
   width: 100%;
