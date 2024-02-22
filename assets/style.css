@@ -1,73 +1,3 @@
-/* These styles are just to make it easier to see the blocks, initially. */
-
-:root {
-  --spacing: 2em;
-  --font-size: 12px;
-  --color: darkgrey;
-  --gutter: calc(var(--font-size) * 1.618);
-}
-
-body {
-  --spacing: 2em;
-  font-family: monospace;
-  padding: var(--spacing);
-}
-
-body,
-header,
-section,
-ul,
-footer,
-address {
-  display: grid;
-  gap: var(--spacing);
-}
-ul {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#channel-blocks li {
-  width: 180px;
-  height: 180px;
-  margin-bottom: 25px;
-  border-radius: 100px;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s linear;
-}
-
-ul li figure {
-  height: 100%;
-  border-radius: 100px;
-}
-ul li figure img,
-video {
-  /* width: 100%;
-  height: 100%; */
-  border-radius: 100px;
-  overflow: hidden;
-  width: 70%;
-  height: 70%;
-}
-
-main {
-  min-width: 600px;
-}
-
-em {
-  font-style: italic;
-}
-strong {
-  font-weight: bold;
-}
-p {
-  max-width: 50ch;
-}
-a {
-  color: #ccc;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -75,43 +5,17 @@ a {
   box-sizing: border-box;
   text-decoration: none;
 }
-
-@media (min-width: 1400px) {
-  :root {
-    --font-size: 24px;
-    --spacing: 40px;
-    --color: black;
-    --accent: grey;
-  }
+body,
+footer {
+  display: grid;
+  gap: var(--spacing);
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-}
-.container header .header-icon {
-  width: 70%;
-  height: 300px;
-  background: url(./aw.gif) center no-repeat;
-}
-article {
-  margin-left: calc(var(--spacing) * 25);
-}
-p.intro {
-  color: grey;
-  width: 70%;
-}
-
-.logo {
-  float: left;
-  display: block;
-  color: black;
-  font-size: calc(var(--font-size) * 4);
-  text-align: left;
-  padding: var(--font-size);
-  text-decoration: none;
-  margin-left: var(--spacing);
-  margin-top: var(--spacing);
+:root {
+  --spacing: 2em;
+  --font-size: 12px;
+  --color: darkgrey;
+  --gutter: calc(var(--font-size) * 1.618);
 }
 
 nav {
@@ -143,122 +47,21 @@ nav a:hover {
 nav a:active {
   text-decoration: underline;
 }
-
-body,
-html {
-  font-family: "";
-  height: 100%;
-  margin: 0;
-}
-
-.box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  width: 1280px;
-  height: auto;
-}
-
-.box img {
-  width: auto;
-  height: 600px;
-  margin: var(--spacing);
-}
-
-.middleimg {
-  width: 100%;
-  height: 100%;
-  border: solid black 1px;
-  margin-top: calc(var(--spacing) * 2);
-}
-
-.pdf-title {
-  font-size: calc(var(--font-size) * 2);
-  margin-top: calc(var(--spacing) * 2);
-  text-align: center;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-top: calc(var(--spacing) * 1.5);
-  margin-bottom: calc(var(--spacing) * 3);
-}
-
-.wnpdf {
+.container header .header-icon {
   width: 70%;
-  height: 80%;
-  margin-bottom: calc(var(--spacing) * 3);
+  height: 300px;
+  background: url(assets/aw.gif) center no-repeat;
 }
 
-.blackwhole {
-  background-color: black;
-  width: 44.8%;
-  height: 100vh;
-}
+/* 
+.frontimg {
+  width: 1800px;
+  height: 700px;
+} */
 
-.footer {
-  background: url(./02.svg) center no-repeat white;
-  color: black;
-  text-align: right;
-  padding: calc(var(--font-size) / 2.5);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid black;
-}
-
-.name,
-.description,
-.pj {
-  display: inline-block;
-  margin: 0 20px;
-}
-
-#imageButton {
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
-  margin: 10px 40%;
-  color: #fff;
-  text-align: center;
-}
-#imageButton:hover {
-  cursor: pointer;
-}
-
-.block--image__description {
-  display: none;
-  position: fixed;
-  color: white;
-  padding: 2em;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(3px);
-  inset: 0;
-}
-.block--image__description .close {
-  width: 100px;
-  height: 50px;
-  border-radius: 50px;
-  background: gray;
-  color: #fff;
-  text-align: center;
-  margin-top: 2em;
-  cursor: pointer;
-}
-.block--image__description img {
-  display: block;
-  width: 30%;
-  height: 50%;
-  border-radius: 10px;
-}
-.block--image__description .intro {
-  margin-top: 10px;
-  color: #fff;
-}
-.block--image.active .block--image__description {
-  display: block;
+body {
+  background-image: url(assets/front.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
 }
