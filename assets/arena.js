@@ -6,7 +6,7 @@ markdownIt.src =
 document.head.appendChild(markdownIt);
 
 // Okay, Are.na stuff!
-let channelSlug = "white-noise-bbjepzswpzu"; // The “slug” is just the end of the URL
+let channelSlug = "white-noise-oasis"; // The “slug” is just the end of the URL
 
 // First, let’s lay out some *functions*, starting with our basic metadata:
 let placeChannelInfo = (data) => {
@@ -59,16 +59,19 @@ let renderBlock = (block) => {
   // Images!
   if (block.class == "Image") {
     let imageItem = `
-			<li class="block block--image">
-				<figure>
-					<img src="${block.image.original.url}" alt="${block.title}">
-				</figure>
-				<div class="block--image__description">
-					${block.description_html}
-				</div>
-				<button id="imageButton" onclick="${onClick()}">🖱️</button>
-			</li>
-			`;
+				<li class="block block--image">
+					<figure>
+						<img src="${block.image.original.url}" alt="${block.title}">
+					</figure>
+					<div class="block--image__description">
+						<img src="${block.image.original.url}" alt="${block.title}
+							by ${block.user.full_name}">
+						<p class="intro">Nature, objects, and white noise share a subtle connection. Nature births everything, objects stem from nature, and white noise mirrors natural sounds.</p>
+						<button class="close">Close</button>
+					</div>
+					<button id="imageButton">🖱️</button>
+				</li>
+				`;
     channelBlocks.insertAdjacentHTML("beforeend", imageItem);
     // …up to you!
   }
@@ -173,6 +176,23 @@ let renderUser = (user, container) => {
   container.insertAdjacentHTML("beforeend", userAddress);
 };
 
+let addInteractivity = () => {
+  let openButtons = document.querySelectorAll(".block--image #imageButton");
+  openButtons.forEach((openButton) => {
+    openButton.onclick = () => {
+      let parentBlock = openButton.parentElement;
+      parentBlock.classList.toggle("active");
+    };
+  });
+  let closeButtons = document.querySelectorAll(".block--image button.close");
+  closeButtons.forEach((closeButton) => {
+    closeButton.onclick = () => {
+      let parentBlock = closeButton.parentElement.parentElement;
+      parentBlock.classList.toggle("active");
+    };
+  });
+};
+
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, {
   cache: "no-store",
@@ -194,8 +214,5 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, {
       renderUser(collaborator, channelUsers)
     );
     renderUser(data.user, channelUsers);
+    addInteractivity();
   });
-
-let onClick = () => {
-  console.log(1);
-};
