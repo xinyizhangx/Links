@@ -27,7 +27,7 @@ let placeChannelInfo = (data) => {
 let renderBlock = (block) => {
   // To start, a shared `ul` where we’ll insert all our blocks
   let channelBlocks = document.getElementById("channel-blocks");
-  // let channelVideos = document.getElementById('channel-videos')
+  let channelLinks = document.getElementById("channel-links");
   // Links!
   if (block.class == "Link") {
     // let linkItem =
@@ -42,18 +42,18 @@ let renderBlock = (block) => {
     // 	<h3>${ block.title }</h3>
     // 	${ block.description_html }
     // 	<p><a href="${ block.source.url }">See the original ↗</a></p>
-    // 	<button id="imageButton">🖱️</button>
+    // 	<button id="imageButton">🔗</button>
     // </li>
     // `
-    let linkItem = `		
-			<li class="block block--link">
-				<figure>
-					<img src="${block.image.original.url}">
-				</figure>
-				<button id="imageButton">🔗</button>
-			</li>
-		`;
-    channelBlocks.insertAdjacentHTML("beforeend", linkItem);
+    let linkItem = `
+    <li class="block block--link">
+      <a href="${block.source.url}">
+        <img src="${block.image.original.url}">
+      </a>
+      <button id="linkButton">🔗</button>
+    </li>
+    `;
+    channelLinks.insertAdjacentHTML("beforeend", linkItem);
   }
 
   // Images!
@@ -66,7 +66,7 @@ let renderBlock = (block) => {
 					<div class="block--image__description">
 						<img src="${block.image.original.url}" alt="${block.title}
 							by ${block.user.full_name}">
-						<p class="intro">Nature, objects, and white noise share a subtle connection. Nature births everything, objects stem from nature, and white noise mirrors natural sounds.</p>
+						<p class="intro">${block.description || block.title}</p>
 						<button class="close">Close</button>
 					</div>
 					<button id="imageButton">🖱️</button>
