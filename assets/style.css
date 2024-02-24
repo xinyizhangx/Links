@@ -83,7 +83,7 @@ body {
   width: 250px;
   height: 140px;
   border-radius: 50%;
-  border: 6px solid #ccc;
+  border: 6px dotted #ccc;
   background-color: transparent;
 }
 .cimg {
