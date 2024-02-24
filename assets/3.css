@@ -104,3 +104,19 @@ nav a:active {
 .w {
   transition: transform 3s ease-out;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+#btn-enter {
+  font-size: 30px;
+  width: 200px;
+  margin-left: 75%;
+  margin-top: 2%;
+  background-color: white;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+}
