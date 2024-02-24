@@ -37,6 +37,15 @@ ul {
   transition: all 0.5s linear;
 }
 
+/* image hover & speed changes */
+.block .block--image figure {
+  transition: all 0.5s;
+}
+
+.block .block--image figure:hover {
+  transform: scale(1.1);
+}
+
 ul li figure {
   height: 100%;
   border-radius: 100px;
