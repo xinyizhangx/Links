@@ -108,7 +108,8 @@ article {
 }
 p.intro {
   color: grey;
-  width: 30%;
+  width: 50%;
+  margin-left: 25%;
 }
 
 .logo {
