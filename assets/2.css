@@ -1,5 +1,10 @@
 /* These styles are just to make it easier to see the blocks, initially. */
 
+@font-face {
+  font-family: heavy;
+  src: url(heavy.otf);
+}
+
 :root {
   --spacing: 2em;
   --font-size: 12px;
@@ -283,19 +288,68 @@ html {
 }
 
 #channel-links {
-  margin: 200px 180px;
+  margin: 50px 180px;
 }
-.block.block--link {
-  width: 30%;
+
+.block.block--link,
+.block.block--pdf,
+.block.block--media {
+  width: 350px;
   height: 270px;
+  margin-bottom: 50px;
   border-radius: 50%;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .block.block--link a {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: -15%;
 }
-.block.block--link a img {
-  width: 100%;
+
+.block.block--pdf a {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: -15%;
+}
+
+.block.block--media a {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: -15%;
+}
+
+.title-links {
+  margin-top: 20%;
+  text-align: left;
+  display: flex;
+  justify-content: left;
+  padding-left: 15%;
+}
+
+.title-links p span {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+}
+
+footer p {
+  font-family: "Love Ya Like A Sister", cursive;
 }

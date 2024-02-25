@@ -50,7 +50,6 @@ let renderBlock = (block) => {
       <a href="${block.source.url}">
         <img src="${block.image.original.url}">
       </a>
-      <button id="linkButton">🔗</button>
     </li>
     `;
     channelLinks.insertAdjacentHTML("beforeend", linkItem);
@@ -111,14 +110,13 @@ let renderBlock = (block) => {
       // 			</a>
       let pdfItem = `
 				<li class="block block--pdf">
-					<figure>
+					<a href="${block.source.url}">
 						<img src="${block.image.original.url}" alt="${block.title}">
-					</figure>
-					<button id="imageButton">🔗</button>
-
+					</a>
 				</li>
 				`;
-      channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
+      channelLinks.insertAdjacentHTML("beforeend", pdfItem);
+      // channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
       // …up to you!
     }
 
@@ -145,14 +143,13 @@ let renderBlock = (block) => {
       // …still up to you, but here’s an example `iframe` element:
       let linkedVideoItem = `
 				<li class="block block--media">
-				<figure>	
+				<a href="${block.source.url}">
 					<img src="${block.image.original.url}" alt="${block.title}">
-				</figure>
-				<button id="imageButton">🔗</button>
+				</a>
 				</li>
 				`;
-      channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
-      // channelVideos.insertAdjacentHTML('beforeend', linkedVideoItem)
+      channelLinks.insertAdjacentHTML("beforeend", linkedVideoItem);
+      // channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
       // More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
     }
 
@@ -166,9 +163,9 @@ let renderBlock = (block) => {
 // It‘s always good to credit your work:
 let renderUser = (user, container) => {
   // You can have multiple arguments for a function!
+  // <img src="${user.avatar_image.display}"></img>
   let userAddress = `
 		<address>
-			<img src="${user.avatar_image.display}">
 			<h3>${user.first_name}</h3>
 			<p><a href="https://are.na/${user.slug}">Are.na profile ↗</a></p>
 		</address>
