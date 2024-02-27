@@ -158,3 +158,37 @@ body {
     left: 40%;
   }
 }
+@media (min-width: 430px) and (max-width: 1024px) {
+  .container header .header-icon {
+    width: 100%;
+    height: 300px;
+    background: url(aw.gif) center/140% 100% no-repeat;
+  }
+  .cc {
+    margin-left: 0;
+    width: 100%;
+    height: calc(100% - 300px);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  .cimg,
+  .clink,
+  .csong {
+    width: 320px;
+    height: 200px;
+  }
+  .cimg {
+    top: 67%;
+    left: 11%;
+  }
+  .clink {
+    top: 32%;
+    left: 29%;
+  }
+  .csong {
+    top: 2%;
+    left: 50%;
+  }
+}

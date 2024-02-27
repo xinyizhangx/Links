@@ -111,8 +111,7 @@ article {
 }
 p.intro {
   color: grey;
-  width: 50%;
-  margin-left: 25%;
+  width: 30%;
 }
 
 .logo {
@@ -217,8 +216,9 @@ html {
   background: url(./02.svg) center no-repeat white;
   color: black;
   text-align: right;
-  padding: calc(var(--font-size) / 2.5);
+  padding: calc(var(--font-size) / 1.5);
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   border-top: 1px solid black;
@@ -251,6 +251,7 @@ html {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(3px);
   inset: 0;
+  z-index: 1200;
 }
 .block--image__description .close {
   width: 100px;
@@ -418,6 +419,9 @@ footer p {
   .block.block--image {
     transform: scale(0.8);
   }
+  .block.block--video {
+    transform: scale(0.8);
+  }
   .title-links {
     margin-top: -18%;
     padding-left: 15%;
@@ -426,5 +430,60 @@ footer p {
   #mouse {
     transform: scale(0.8);
     left: 75%;
+  }
+}
+@media (min-width: 430px) and (max-width: 1024px) {
+  .container header .header-icon {
+    width: 100%;
+    height: 200px;
+    background: url(./aw.gif) top right/125% 100% no-repeat;
+  }
+  article {
+    margin-left: calc(var(--spacing) * 5);
+  }
+  nav {
+    width: 100px;
+    top: 0;
+    left: 82%;
+    z-index: 1000;
+    margin-top: calc(var(--spacing) * 1.2);
+  }
+  nav a {
+    margin-left: 0;
+  }
+  p.intro {
+    width: 65%;
+    margin-left: 0;
+    font-size: 18px;
+    margin-top: 50px;
+  }
+
+  main section h2 {
+    font-size: 16px;
+  }
+  #channel-blocks {
+    width: 85%;
+  }
+  #channel-blocks li {
+    width: 120px;
+    height: 120px;
+  }
+  #channel-links {
+    margin: 0;
+    margin-left: 8%;
+  }
+  .block.block--image {
+    transform: scale(0.8);
+  }
+  .block.block--video {
+    transform: scale(0.8);
+  }
+  .title-links {
+    margin-top: 5%;
+    padding-left: 30%;
+    padding-bottom: 50px;
+  }
+  #mouse {
+    left: 82%;
   }
 }
