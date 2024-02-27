@@ -362,7 +362,7 @@ footer p {
   font-family: "Love Ya Like A Sister", cursive;
 }
 
-@media screen and (min-width: 375px) and (max-width: 430px) {
+@media (min-width: 375px) and (max-width: 430px) {
   .container {
     width: 300px;
     height: 200px;
@@ -440,9 +440,39 @@ footer p {
   }
 }
 
+@media screen and (min-width: 430px) and (max-width: 430px) {
+  .container header .header-icon {
+    width: 120%;
+    height: 200px;
+    background: url(./aw.gif) top right/125% 100% no-repeat;
+  }
+
+  nav {
+    width: 100px;
+    top: 0;
+    left: 78%;
+    z-index: 1000;
+    margin-top: calc(var(--spacing) * 1.2);
+  }
+  p.intro {
+    width: 100%;
+    margin-left: 0;
+    font-size: 12px;
+  }
+  #channel-blocks {
+    width: 91%;
+  }
+  .name,
+  .description,
+  .pj {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 10px;
+  }
+}
 @media (min-width: 430px) and (max-width: 1024px) {
   .container header .header-icon {
-    width: 100%;
+    width: 120%;
     height: 200px;
     background: url(./aw.gif) top right/125% 100% no-repeat;
   }
