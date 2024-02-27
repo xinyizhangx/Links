@@ -427,6 +427,13 @@ footer p {
     padding-left: 15%;
     padding-bottom: 20px;
   }
+  .name,
+  .description,
+  .pj {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 10px;
+  }
   #mouse {
     transform: scale(0.8);
     left: 75%;
@@ -482,6 +489,13 @@ footer p {
     margin-top: 5%;
     padding-left: 30%;
     padding-bottom: 50px;
+  }
+  .name,
+  .description,
+  .pj {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 15px;
   }
   #mouse {
     left: 82%;

@@ -171,6 +171,13 @@ body {
   .container2 {
     margin-left: 0;
   }
+  .name,
+  .description,
+  .pj {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 10px;
+  }
   #mouse {
     transform: scale(0.8);
     left: 75%;
@@ -197,6 +204,13 @@ body {
   .container2 {
     width: 600px;
     margin-left: 0;
+  }
+  .name,
+  .description,
+  .pj {
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 15px;
   }
   #mouse {
     left: 80%;
