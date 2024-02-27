@@ -362,7 +362,7 @@ footer p {
   font-family: "Love Ya Like A Sister", cursive;
 }
 
-@media (min-width: 375px) and (max-width: 430px) {
+@media screen and (min-width: 375px) and (max-width: 430px) {
   .container {
     width: 300px;
     height: 200px;
@@ -439,6 +439,7 @@ footer p {
     left: 75%;
   }
 }
+
 @media (min-width: 430px) and (max-width: 1024px) {
   .container header .header-icon {
     width: 100%;

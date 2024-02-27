@@ -124,7 +124,7 @@ body {
   transform: rotate(40deg);
 }
 
-@media (min-width: 375px) and (max-width: 430px) {
+@media screen and (min-width: 375px) and (max-width: 430px) {
   .container header .header-icon {
     width: 100%;
     height: 200px;
