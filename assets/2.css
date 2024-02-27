@@ -440,37 +440,7 @@ footer p {
   }
 }
 
-@media screen and (min-width: 430px) and (max-width: 430px) {
-  .container header .header-icon {
-    width: 120%;
-    height: 200px;
-    background: url(./aw.gif) top right/125% 100% no-repeat;
-  }
-
-  nav {
-    width: 100px;
-    top: 0;
-    left: 78%;
-    z-index: 1000;
-    margin-top: calc(var(--spacing) * 1.2);
-  }
-  p.intro {
-    width: 100%;
-    margin-left: 0;
-    font-size: 12px;
-  }
-  #channel-blocks {
-    width: 91%;
-  }
-  .name,
-  .description,
-  .pj {
-    display: inline-block;
-    margin: 0 20px;
-    font-size: 10px;
-  }
-}
-@media (min-width: 430px) and (max-width: 1024px) {
+@media screen and(min-width: 430px) and (max-width: 1024px) {
   .container header .header-icon {
     width: 120%;
     height: 200px;
@@ -482,7 +452,7 @@ footer p {
   nav {
     width: 100px;
     top: 0;
-    left: 82%;
+    left: 78%;
     z-index: 1000;
     margin-top: calc(var(--spacing) * 1.2);
   }
@@ -490,17 +460,16 @@ footer p {
     margin-left: 0;
   }
   p.intro {
-    width: 65%;
+    width: 100%;
     margin-left: 0;
-    font-size: 18px;
-    margin-top: 50px;
+    font-size: 12px;
   }
 
   main section h2 {
     font-size: 16px;
   }
   #channel-blocks {
-    width: 85%;
+    width: 91%;
   }
   #channel-blocks li {
     width: 120px;
@@ -526,7 +495,7 @@ footer p {
   .pj {
     display: inline-block;
     margin: 0 20px;
-    font-size: 15px;
+    font-size: 10px;
   }
   #mouse {
     left: 82%;
