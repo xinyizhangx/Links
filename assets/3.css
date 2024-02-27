@@ -157,7 +157,10 @@ body {
   }
   nav {
     width: 100px;
+    top: 0;
     left: 70%;
+    z-index: 1000;
+    margin-top: calc(var(--spacing) * 1.2);
     transform: scale(0.7);
   }
   #btn-enter {
