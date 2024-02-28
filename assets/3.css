@@ -151,7 +151,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url(/assets/bg.gif);
+  background: url(bg.gif);
 }
 .warning .close-btn {
   width: 20px;
