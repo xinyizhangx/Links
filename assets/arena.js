@@ -69,7 +69,13 @@ let renderBlock = (block) => {
 						<button class="close">Close</button>
 					</div>
 					<button id="imageButton">🖱️</button>
-				</li>
+        </li>
+        <div class="phone-block">
+            <img src="${block.image.original.url}" alt="${block.title}
+            by ${block.user.full_name}">
+          <p class="intro">${block.description || block.title}</p>
+          <button class="close">Close</button>
+        </div>
 				`;
     channelBlocks.insertAdjacentHTML("beforeend", imageItem);
     // …up to you!
@@ -182,9 +188,16 @@ let addInteractivity = () => {
     };
   });
   let closeButtons = document.querySelectorAll(".block--image button.close");
+  let closeButton2s = document.querySelectorAll(".phone-block button.close");
   closeButtons.forEach((closeButton) => {
     closeButton.onclick = () => {
       let parentBlock = closeButton.parentElement.parentElement;
+      parentBlock.classList.toggle("active");
+    };
+  });
+  closeButton2s.forEach((closeButton) => {
+    closeButton.onclick = () => {
+      let parentBlock = closeButton.parentElement.previousElementSibling;
       parentBlock.classList.toggle("active");
     };
   });

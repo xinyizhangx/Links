@@ -31,7 +31,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("front.webp") no-repeat center center;
+  background: url("./front.webp") no-repeat center center;
   background-size: cover;
   filter: blur(9px);
   z-index: -1;
@@ -88,6 +88,11 @@ video {
   overflow: hidden;
   width: 70%;
   height: 70%;
+  transition: all 0.5s linear;
+}
+ul li figure img:hover,
+video:hover {
+  transform: scale(1.1);
 }
 
 header,
@@ -271,21 +276,26 @@ html {
   cursor: pointer;
 }
 
-.block--image__description {
+.block--image__description,
+.phone-block {
   display: none;
   position: fixed;
   color: white;
   padding: 2em;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(3px);
-  inset: 0;
+  /* inset: 0; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 1200;
 }
 .block--image__description .close {
   width: 100px;
   height: 50px;
   border-radius: 50px;
-  background: gray;
+  background: grey;
   color: #fff;
   text-align: center;
   margin-top: 2em;
@@ -298,6 +308,26 @@ html {
   border-radius: 10px;
 }
 .block--image__description .intro {
+  margin-top: 10px;
+  color: #fff;
+}
+.phone-block .close {
+  width: 100px;
+  height: 50px;
+  border-radius: 50px;
+  background: grey;
+  color: #fff;
+  text-align: center;
+  margin-top: 2em;
+  cursor: pointer;
+}
+.phone-block img {
+  display: block;
+  width: 100%;
+  height: 50%;
+  border-radius: 10px;
+}
+.phone-block .intro {
   margin-top: 10px;
   color: #fff;
 }
@@ -397,6 +427,12 @@ footer p {
 }
 
 @media (min-width: 375px) and (max-width: 430px) {
+  .block--image.active .block--image__description {
+    display: none;
+  }
+  .block--image.active + .phone-block {
+    display: block;
+  }
   .container {
     width: 300px;
     height: 200px;
@@ -479,6 +515,12 @@ footer p {
 }
 
 @media screen and(min-width: 430px) and (max-width: 1024px) {
+  .block--image.active .block--image__description {
+    display: none;
+  }
+  .block--image.active + .phone-block {
+    display: block;
+  }
   .container header .header-icon {
     width: 120%;
     height: 200px;
