@@ -25,6 +25,26 @@ body {
   padding: var(--spacing);
 }
 
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/front.webp") no-repeat center center;
+  background-size: cover;
+  filter: blur(9px);
+  z-index: -1;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body,
 header,
 section,
@@ -51,7 +71,7 @@ ul {
 
 /* image hover & speed changes */
 .block .block--image figure {
-  transition: all 0.5s;
+  transition: all 0.5s linear;
 }
 
 .block .block--image figure:hover {
@@ -64,16 +84,24 @@ ul li figure {
 }
 ul li figure img,
 video {
-  /* width: 100%;
-  height: 100%; */
   border-radius: 100px;
   overflow: hidden;
   width: 70%;
   height: 70%;
 }
 
+header,
+footer {
+  margin-left: 3%;
+}
+
+footer {
+  padding-bottom: 9%;
+}
+
 main {
   min-width: 600px;
+  margin-left: 3%;
 }
 
 em {
@@ -302,6 +330,12 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  filter: blur(2px);
+}
+.block.block--link:hover,
+.block.block--pdf:hover,
+.block.block--media:hover {
+  filter: blur(0);
 }
 
 .block.block--link a {
@@ -427,6 +461,10 @@ footer p {
     padding-left: 15%;
     padding-bottom: 20px;
   }
+  #channel-users {
+    padding-bottom: 9%;
+  }
+
   .name,
   .description,
   .pj {
