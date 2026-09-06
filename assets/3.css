@@ -189,51 +189,65 @@ body {
 .textAlert {
   position: relative;
   z-index: 1;
-  max-width: 11ch;
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 34px;
-  line-height: 1.2;
+  max-width: 28ch;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #868e96;
+}
+.textAlert strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
   letter-spacing: 0.01em;
-  color: #343a40;
-  text-wrap: balance;
+  color: #212529;
 }
-.textAlert em {
-  font-style: normal;
-  color: #adb5bd;
-}
-.warning .hint {
+.warning .enter-btn {
   position: relative;
   z-index: 1;
-  margin-top: -6px;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #adb5bd;
-}
-.warning .close-btn {
-  position: relative;
-  z-index: 1;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid #868e96;
-  background: #fff;
-  color: #495057;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
-}
-.warning .close-btn:hover {
-  background: #495057;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  background: #343a40;
   color: #fff;
-  transform: scale(1.08);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
 }
+.warning .enter-btn:hover {
+  background: #212529;
+  transform: translateY(-1px);
+}
+.warning .enter-btn:focus-visible,
 .warning .close-btn:focus-visible {
   outline: 2px solid #adb5bd;
   outline-offset: 4px;
+}
+.warning .close-btn {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #adb5bd;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.25s, background 0.25s;
+}
+.warning .close-btn:hover {
+  color: #343a40;
+  background: #f1f3f5;
 }
 .warning .ripple {
   position: absolute;
@@ -325,14 +339,14 @@ body {
   }
 
   .textAlert {
-    font-size: 26px;
+    font-size: 13px;
+  }
+  .textAlert strong {
+    font-size: 19px;
   }
   .warning {
     padding: 0 46px 96px;
     gap: 12px;
-  }
-  .warning .hint {
-    font-size: 10px;
   }
 
   #btn-enter {

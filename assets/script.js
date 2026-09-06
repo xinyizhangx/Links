@@ -24,9 +24,12 @@ button.onclick = () => {
   dialog.className = "warning";
   dialog.setAttribute("role", "dialog");
   dialog.innerHTML = `
-    <p class="textAlert">Every circle <em>hides</em> a sound.</p>
-    <button class="close-btn" type="button" aria-label="Enter">&rarr;</button>
-    <span class="hint">pick one &middot; drift away</span>
+    <button class="close-btn" type="button" aria-label="Close">&times;</button>
+    <p class="textAlert">
+      <strong>White Noise Oasis</strong>
+      Every circle hides a sound.<br>Pick one and drift away.
+    </p>
+    <button class="enter-btn" type="button">Start listening</button>
     ${ripple}`;
 
   const close = () => {
@@ -43,9 +46,10 @@ button.onclick = () => {
   };
 
   dialog.querySelector(".close-btn").onclick = close;
+  dialog.querySelector(".enter-btn").onclick = close;
   backdrop.onclick = close;
   document.addEventListener("keydown", onKey);
 
   document.body.append(backdrop, dialog);
-  dialog.querySelector(".close-btn").focus();
+  dialog.querySelector(".enter-btn").focus();
 };
