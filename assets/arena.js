@@ -97,7 +97,7 @@ let renderBlock = (block) => {
         // <p><em>Video</em></p>
         `
 				<li class="block block--video">
-					<video controls src="${block.attachment.url}"></video>
+					<video src="${block.attachment.url}" playsinline preload="metadata"></video>
 					<button id="imageButton">🖱️</button>
 
 				</li>
@@ -215,6 +215,10 @@ let addInteractivity = () => {
     });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeAll();
+  });
+  // Videos: click the circle to play / pause
+  document.querySelectorAll(".block--video video").forEach((video) => {
+    video.onclick = () => (video.paused ? video.play() : video.pause());
   });
 };
 

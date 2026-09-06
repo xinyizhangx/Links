@@ -95,6 +95,16 @@ video:hover {
   transform: scale(1.1);
 }
 
+/* video blocks: same 180px frame as image blocks so the button lines up */
+.block--video {
+  display: grid;
+  grid-template-rows: 100% auto;
+}
+.block--video video {
+  object-fit: cover;
+  cursor: pointer;
+}
+
 header,
 footer {
   margin-left: 3%;
