@@ -147,7 +147,7 @@ body {
   width: min(460px, 92vw);
   height: min(460px, 92vw);
   border-radius: 50%;
-  padding: 0 52px 120px;
+  padding: 16px 52px 120px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -156,7 +156,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 28px;
   text-align: center;
   background: #fff;
   border: 1px solid #dee2e6;
@@ -226,7 +226,7 @@ body {
   width: 84px;
   height: 84px;
   border-radius: 50%;
-  border: 1px dashed #868e96;
+  border: 1px solid #ced4da;
   background: #fff;
   color: #495057;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -242,7 +242,7 @@ body {
   position: absolute;
   inset: -1px;
   border-radius: 50%;
-  border: 1px solid #adb5bd;
+  border: 1px solid #ced4da;
   opacity: 0;
   pointer-events: none;
   animation: ring 3s ease-out infinite;
@@ -252,8 +252,8 @@ body {
 }
 .warning .enter-btn:hover {
   transform: scale(1.06);
-  border-style: solid;
-  border-color: #343a40;
+  border-color: #868e96;
+  background: #f8f9fa;
   color: #212529;
 }
 .warning .enter-btn:hover::before,
@@ -265,8 +265,8 @@ body {
   animation-delay: 0.6s;
 }
 @keyframes ring {
-  0%   { transform: scale(1);   opacity: 0.8; }
-  100% { transform: scale(2.1); opacity: 0; }
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 .warning .enter-btn:focus-visible,
 .warning .close-btn:focus-visible {
@@ -275,24 +275,25 @@ body {
 }
 .warning .close-btn {
   position: absolute;
-  top: 26px;
+  top: 22px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: none;
-  background: transparent;
+  border: 1px solid #ced4da;
+  background: #fff;
   color: #adb5bd;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.25s, background 0.25s;
+  transition: color 0.25s, background 0.25s, border-color 0.25s;
 }
 .warning .close-btn:hover {
-  color: #343a40;
-  background: #f1f3f5;
+  color: #212529;
+  border-color: #868e96;
+  background: #f8f9fa;
 }
 .warning .ripple {
   position: absolute;
@@ -391,7 +392,7 @@ body {
   }
   .warning {
     padding: 0 46px 96px;
-    gap: 12px;
+    gap: 20px;
   }
 
   #btn-enter {
