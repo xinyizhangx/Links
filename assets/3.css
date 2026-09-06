@@ -102,7 +102,11 @@ nav a:active {
   background-color: #ccc;
 }
 .w {
-  transition: transform 3s ease-out;
+  transition: transform 3s ease-out, box-shadow 0.45s ease, border-color 0.45s ease;
+}
+.w.is-cue {
+  border-color: #868e96;
+  box-shadow: 0 0 0 12px rgba(134, 142, 150, 0.18);
 }
 
 html,

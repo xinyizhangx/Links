@@ -14,7 +14,25 @@ const ripple = `<svg class="ripple" viewBox="0 0 460 200" aria-hidden="true">
   </g>
 </svg>`;
 
-button.onclick = () => {
+const WELCOME_KEY = "wno-welcomed";
+const remember = (k) => { try { localStorage.setItem(k, "1"); } catch (_) {} };
+const seen = (k) => { try { return !!localStorage.getItem(k); } catch (_) { return true; } };
+
+// after the card closes, light up the circles in view one after another
+const cueCircles = () => {
+  const inView = [...document.querySelectorAll(".w")].filter((el) => {
+    const r = el.getBoundingClientRect();
+    return r.bottom > 0 && r.top < innerHeight;
+  });
+  inView.forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.add("is-cue");
+      setTimeout(() => el.classList.remove("is-cue"), 500);
+    }, 120 + i * 70);
+  });
+};
+
+const openDialog = () => {
   if (document.querySelector(".warning")) return;
 
   const backdrop = document.createElement("div");
@@ -43,7 +61,9 @@ button.onclick = () => {
     setTimeout(() => {
       dialog.remove();
       backdrop.remove();
+      cueCircles();
     }, 400);
+    remember(WELCOME_KEY);
   };
   const onKey = (e) => {
     if (e.key === "Escape") close();
@@ -57,3 +77,9 @@ button.onclick = () => {
   document.body.append(backdrop, dialog);
   dialog.querySelector(".enter-btn").focus();
 };
+
+button.onclick = openDialog;
+
+if (!seen(WELCOME_KEY)) {
+  setTimeout(openDialog, 700);
+}
