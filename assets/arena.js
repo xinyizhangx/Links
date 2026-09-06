@@ -201,6 +201,21 @@ let addInteractivity = () => {
       parentBlock.classList.toggle("active");
     };
   });
+  // Click on the dark backdrop (not the image/text) or press Escape to close
+  let closeAll = () =>
+    document
+      .querySelectorAll(".block--image.active")
+      .forEach((block) => block.classList.remove("active"));
+  document
+    .querySelectorAll(".block--image__description, .phone-block")
+    .forEach((overlay) => {
+      overlay.onclick = (event) => {
+        if (event.target === overlay) closeAll();
+      };
+    });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeAll();
+  });
 };
 
 // Now that we have said what we can do, go get the data:
