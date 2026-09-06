@@ -51,7 +51,7 @@ const openDialog = () => {
       <strong>White Noise Oasis</strong>
       Every circle hides a sound.<br>Pick one and drift away.
     </p>
-    <button class="enter-btn" type="button">Start listening</button>
+    <button class="enter-btn" type="button">listen</button>
     ${ripple}`;
 
   const close = () => {
