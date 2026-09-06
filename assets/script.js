@@ -6,8 +6,8 @@ const rings = Array.from({ length: 9 }, (_, i) => {
 }).join("");
 
 const ripple = `<svg class="ripple" viewBox="0 0 460 200" aria-hidden="true">
-  <g fill="none" stroke="#adb5bd" stroke-width="1" stroke-dasharray="1 4" stroke-linecap="round">${rings}</g>
-  <g class="ripple-wave" fill="none" stroke="#868e96" stroke-width="1.2">
+  <g fill="none" stroke="#dee2e6" stroke-width="0.7" stroke-dasharray="1 5" stroke-linecap="round">${rings}</g>
+  <g class="ripple-wave" fill="none" stroke="#ced4da" stroke-width="0.8">
     <ellipse cx="230" cy="100" rx="20" ry="6.8"/>
     <ellipse cx="230" cy="100" rx="20" ry="6.8"/>
     <ellipse cx="230" cy="100" rx="20" ry="6.8"/>
