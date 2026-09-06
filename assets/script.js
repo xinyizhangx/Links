@@ -1,20 +1,51 @@
 let button = document.querySelector("#btn-enter");
 
+const rings = Array.from({ length: 9 }, (_, i) => {
+  const r = 18 + i * 24;
+  return `<ellipse cx="230" cy="100" rx="${r}" ry="${(r * 0.34).toFixed(1)}"/>`;
+}).join("");
+
+const ripple = `<svg class="ripple" viewBox="0 0 460 200" aria-hidden="true">
+  <g fill="none" stroke="#adb5bd" stroke-width="1" stroke-dasharray="1 4" stroke-linecap="round">${rings}</g>
+  <g class="ripple-wave" fill="none" stroke="#868e96" stroke-width="1.2">
+    <ellipse cx="230" cy="100" rx="20" ry="6.8"/>
+    <ellipse cx="230" cy="100" rx="20" ry="6.8"/>
+    <ellipse cx="230" cy="100" rx="20" ry="6.8"/>
+  </g>
+</svg>`;
+
 button.onclick = () => {
-  if (!document.querySelector(".warning")) {
-    let dialog = document.createElement("div");
-    let span = document.createElement("span");
-    let span2 = document.createElement("span");
-    span.innerHTML = `🤗 Welcome to White Noise Oasis. 🤗 Every click is an unexpected journey. Here, each circle is the key to a new world. Are you ready to explore your exclusive tranquility?`;
-    span.classList.add("textAlert");
-    span2.innerHTML = "➡️";
-    dialog.appendChild(span);
-    dialog.appendChild(span2);
-    dialog.className = "warning";
-    span2.className = "close-btn";
-    span2.onclick = () => {
-      document.body.removeChild(dialog);
-    };
-    document.body.appendChild(dialog);
-  }
+  if (document.querySelector(".warning")) return;
+
+  const backdrop = document.createElement("div");
+  backdrop.className = "warning-backdrop";
+
+  const dialog = document.createElement("div");
+  dialog.className = "warning";
+  dialog.setAttribute("role", "dialog");
+  dialog.innerHTML = `
+    <p class="textAlert">Every circle <em>hides</em> a sound.</p>
+    <button class="close-btn" type="button" aria-label="Enter">&rarr;</button>
+    <span class="hint">pick one &middot; drift away</span>
+    ${ripple}`;
+
+  const close = () => {
+    dialog.classList.add("is-leaving");
+    backdrop.classList.add("is-leaving");
+    document.removeEventListener("keydown", onKey);
+    setTimeout(() => {
+      dialog.remove();
+      backdrop.remove();
+    }, 250);
+  };
+  const onKey = (e) => {
+    if (e.key === "Escape") close();
+  };
+
+  dialog.querySelector(".close-btn").onclick = close;
+  backdrop.onclick = close;
+  document.addEventListener("keydown", onKey);
+
+  document.body.append(backdrop, dialog);
+  dialog.querySelector(".close-btn").focus();
 };
