@@ -22,6 +22,10 @@ button.onclick = () => {
 
   const dialog = document.createElement("div");
   dialog.className = "warning";
+  // start the card from the button's centre so it grows out of it
+  const b = button.getBoundingClientRect();
+  dialog.style.setProperty("--dx", `${b.left + b.width / 2 - innerWidth / 2}px`);
+  dialog.style.setProperty("--dy", `${b.top + b.height / 2 - innerHeight / 2}px`);
   dialog.setAttribute("role", "dialog");
   dialog.innerHTML = `
     <button class="close-btn" type="button" aria-label="Close">&times;</button>
@@ -39,7 +43,7 @@ button.onclick = () => {
     setTimeout(() => {
       dialog.remove();
       backdrop.remove();
-    }, 250);
+    }, 400);
   };
   const onKey = (e) => {
     if (e.key === "Escape") close();
