@@ -46,7 +46,6 @@ const openDialog = () => {
   dialog.style.setProperty("--dy", `${b.top + b.height / 2 - innerHeight / 2}px`);
   dialog.setAttribute("role", "dialog");
   dialog.innerHTML = `
-    <button class="close-btn" type="button" aria-label="Close">&times;</button>
     <p class="textAlert">
       <strong>White Noise Oasis</strong>
       Every circle hides a sound.<br>Pick one and drift away.
@@ -69,7 +68,6 @@ const openDialog = () => {
     if (e.key === "Escape") close();
   };
 
-  dialog.querySelector(".close-btn").onclick = close;
   dialog.querySelector(".enter-btn").onclick = close;
   backdrop.onclick = close;
   document.addEventListener("keydown", onKey);

@@ -147,7 +147,7 @@ body {
   width: min(460px, 92vw);
   height: min(460px, 92vw);
   border-radius: 50%;
-  padding: 16px 52px 120px;
+  padding: 0 52px 120px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -268,32 +268,9 @@ body {
   0%   { transform: scale(1);   opacity: 0.6; }
   100% { transform: scale(1.5); opacity: 0; }
 }
-.warning .enter-btn:focus-visible,
-.warning .close-btn:focus-visible {
+.warning .enter-btn:focus-visible {
   outline: 2px solid #adb5bd;
   outline-offset: 4px;
-}
-.warning .close-btn {
-  position: absolute;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid #ced4da;
-  background: #fff;
-  color: #adb5bd;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  transition: color 0.25s, background 0.25s, border-color 0.25s;
-}
-.warning .close-btn:hover {
-  color: #212529;
-  border-color: #868e96;
-  background: #f8f9fa;
 }
 .warning .ripple {
   position: absolute;
